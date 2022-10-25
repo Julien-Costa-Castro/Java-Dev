@@ -5,6 +5,11 @@ public class CarréMagique {
             int ligne = 0;
             int colonne = n/2;
             int k = 1;
+            for (int i = 0; i < M.length; i++) {
+                for (int j = 0; j <M[0].length ; j++) {
+                    M[i][j] = 0;
+                }
+            }
             while (k <=n*n){
                 M[ligne][colonne]=k++;
                 int ligne2 = ligne;
