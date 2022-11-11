@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class MatriceEnSerpentin {
     public static void remplirCetteMatriceEnSerpentin(int[][] M) {
         int count = 1;
@@ -20,14 +19,21 @@ public class MatriceEnSerpentin {
 
     public static int[][] nouvelleMatriceEnSerpentin(int n) {
         int[][] M = new int[n][n];
-        int count = 1;
+        remplirCetteMatriceEnSerpentin(M);
+        return M;
+    }
+
+    public static void afficherMatrice(int[][] M) {
         for (int i = 0; i < M.length; i++) {
             for (int j = 0; j < M[0].length; j++) {
-                M[i][j] = count;
-                count++;
+                System.out.print(M[i][j] + " ");
             }
+            System.out.println();
         }
-        return M;
+    }
+    public static void main(String[] args) {
+        int[][] Q = MatriceEnSerpentin.nouvelleMatriceEnSerpentin(4);
+        afficherMatrice(Q);
     }
 }
 

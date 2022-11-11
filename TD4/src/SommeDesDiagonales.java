@@ -10,6 +10,5 @@ public class SommeDesDiagonales {
         }
         return sum;
     }
-
 }
 
