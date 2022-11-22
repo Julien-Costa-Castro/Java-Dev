@@ -27,11 +27,7 @@ public class MatriceEnDiagonale {
     }
     public static int[][] nouvelleMatriceEnDiagonale(int n){
         int[][] M = new int[n][n];
-        for (int i = 0; i < M.length; i++) {
-            for (int j = 0; j < M[0].length; j++) {
-                M[i][j] = 0;
-            }
-        }
+        remplirCetteMatriceEnDiagonale(M);
         return M;
     }
 }

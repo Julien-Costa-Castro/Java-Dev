@@ -98,13 +98,13 @@
          * Résultat : affiche n en chiffres Romain, avec un espace entre les chiffres
          */
         public static void afficher(int n){
-            int u=n%10;
-            int d=(n/10)%10;
-            int c=(n/100)%10;
-            System.out.print(centaines(c)+dizaines(d)+unités(u));
+            int c = n/100;
+            int d = (n-(c*100))/10;
+            int u = n-(c*100)-(d*10);
+            System.out.print(centaines(c)+" "+dizaines(d)+" "+unités(u));
         }
 
      public static void main(String[] args) {
-            NumérationRomaine.afficher(1999);
+            NumérationRomaine.afficher(102);
      }
 }

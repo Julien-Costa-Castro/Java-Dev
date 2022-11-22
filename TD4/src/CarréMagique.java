@@ -1,6 +1,11 @@
 public class CarréMagique {
 
     public static void remplirEnCarréMagique(int[][] M) {
+        for (int i = 0; i < M.length; i++) {
+            for (int j = 0; j < M[0].length; j++) {
+                M[i][j] = 0;
+            }
+        }
         int n = M.length;
         int i = 0;
         int j = n / 2;
@@ -43,34 +48,39 @@ public class CarréMagique {
                 b = false;
             }
         }
-            int sum3 = 0;
-            int sum4 = 0;
-            for (int k = 0; k < n; k++) {
-                sum3 = sum3 + T[k][k];
-                sum4 = sum4 + T[k][n - 1 - k];
-            }
-            if (sum3 != sum || sum4 != sum) {
-                b = false;
-            }
-            return b;
-}
-        public static void afficherCarré( int[][] carré) {
-            int n = carré.length;
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    System.out.print(carré[i][j] + "\t");
-                }
-                System.out.println();
-            }
+        int sum3 = 0;
+        int sum4 = 0;
+        for (int k = 0; k < n; k++) {
+            sum3 = sum3 + T[k][k];
+            sum4 = sum4 + T[k][n - 1 - k];
         }
+        if (sum3 != sum || sum4 != sum) {
+            b = false;
+        }
+        return b;
+    }
 
-        public static void main (String[]args){
-            int[][] M = {{8, 1, 6}, {3, 0, 7}, {4, 9, 2}};
-            remplirEnCarréMagique(M);
-            afficherCarré(M);
-            System.out.println(cEstUnCarréMagique(M));
+    /**
+     * Donnée : un tableau d'entiers carré de n rangées et n colonnes
+     * Résultat : affiche le tableau une rangée par ligne et en séparant les entiers sur chaque ligne par une tabulation
+     */
+    public static void afficherCarré(int[][] carré) {
+        int n = carré.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(carré[i][j] + "\t");
+            }
+            System.out.println();
         }
     }
+
+    public static void main(String[] args) {
+        int[][] M = {{8, 1, 6}, {3, 0, 7}, {4, 9, 2}};
+        remplirEnCarréMagique(M);
+        afficherCarré(M);
+        System.out.println(cEstUnCarréMagique(M));
+    }
+}
 
 
 
