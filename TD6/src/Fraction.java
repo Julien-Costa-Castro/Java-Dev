@@ -72,8 +72,12 @@ public class Fraction {
 
     public Fraction plus(Fraction X) {
         Fraction f = new Fraction(this);
-        f.denominateur = f.denominateur + X.denominateur;
-        f.numerateur = f.numerateur + X.numerateur;
+        if (f.denominateur == X.denominateur) {
+            f.numerateur = f.numerateur + X.numerateur;
+        } else {
+            f.numerateur = f.numerateur * X.denominateur + X.numerateur * f.denominateur;
+            f.denominateur = f.denominateur * X.denominateur;
+        }
         f.reduire();
         return f;
     }
