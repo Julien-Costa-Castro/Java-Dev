@@ -8,12 +8,16 @@ public class SontÉgales {
                 return true;
             }
         }
-        for (int i = 0; i < P.length ; i++) {
-            for (int j = 0; j < P[0].length; j++) {
+        int i = 0;
+        while (i < P.length) {
+            int j = 0;
+            while (j < P[0].length) {
                 if (P[i][j] != Q[i][j]) {
                     return false;
                 }
+                j++;
             }
+            i++;
         }
         return true;
     }

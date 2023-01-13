@@ -1,21 +1,21 @@
 public class Course {
     private Voiture voiture1;
     private Voiture voiture2;
-    private int longueur;
+    private int longueurPiste;
     /* pré-requis : deux voitures et une longueur sont passées en paramètres
      * action : crée une course de longueur x et de deux voitures
      */
-    public Course (Voiture uneVoit1, Voiture uneVoit2, int longueur){
+    public Course(Voiture uneVoit1, Voiture uneVoit2, int longueur){
         this.voiture1 = uneVoit1;
         this.voiture2 = uneVoit2;
-        this.longueur = longueur;
+        this.longueurPiste = longueur;
     }
 
     /* résultat : retourne une chaîne de caractères contenant les caractéristiques
      * de this (sous la forme de votre choix)
      */
     public String toString(){
-        return "Course de " + this.longueur + "entre " + this.voiture1.leNom() + " et " + this.voiture2.leNom();
+        return "Course de longueur " + this.longueurPiste + " entre " + this.voiture1.leNom() + " et " + this.voiture2.leNom();
     }
 
     /*
@@ -28,10 +28,21 @@ public class Course {
      * nom) à leur position respective à chaque étape permet de suivre la course.
      * résultat : la voiture gagnante.
      */
-    public Voiture deroulement(){
-        this.voiture1.avance();
-        this.voiture2.avance();
-        return this.voiture1;
+    public Voiture déroulement(){
+        this.voiture1.auDépart();
+        this.voiture2.auDépart();
+        while(voiture1.dépasse(longueurPiste) || voiture2.dépasse(longueurPiste)){
+            int nb = Ut.randomMinMax(0, 1);
+            Ut.randomMinMax(0, 1);
+            if (nb == 1){
+                this.voiture1.avance();
+            }
+            else this.voiture2.avance();
+        }
+        if (this.voiture1.dépasse(longueurPiste)){
+            return voiture1;
+        }
+        else return voiture2;
     }
 
 }

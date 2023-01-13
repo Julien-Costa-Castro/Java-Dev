@@ -1,4 +1,8 @@
 public class Additionner {
+    /*
+    *  Donnée: 2 entiers
+    *  Résultat: la somme des 2 entiers
+    */
     public static int[][] additionner(int[][] P, int[][] Q) {
         int [][] R=new int[P.length][P[0].length];
         for (int i = 0; i < P.length; i++) {

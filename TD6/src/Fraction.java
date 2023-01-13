@@ -84,8 +84,15 @@ public class Fraction {
 
     public Fraction puissance(int n) {
         Fraction f = new Fraction(this);
-        for (int i = 0; i < n; i++) {
-            f = f.fois(this);
+        if(n ==0){
+            f.numerateur = 1;
+            f.denominateur = 1;
+        }
+        else{
+            for (int i = 1; i < n; i++) {
+                f.numerateur = f.numerateur * f.numerateur;
+                f.denominateur = f.denominateur * f.denominateur;
+            }
         }
         f.reduire();
         return f;
@@ -97,7 +104,11 @@ public class Fraction {
         if(f.denominateur == X.denominateur && f.numerateur == X.numerateur){
             return true;
         }
+        else if (f.denominateur == X.denominateur*2 && f.numerateur == X.numerateur*2){
+            return true;
+        }
         else return false;
+
     }
 
     public boolean estIrréductible(){

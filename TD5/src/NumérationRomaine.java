@@ -105,6 +105,6 @@
         }
 
      public static void main(String[] args) {
-            NumérationRomaine.afficher(102);
+            NumérationRomaine.afficher(185);
      }
 }
